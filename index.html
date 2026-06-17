@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Ndiaga Diop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Boutons flottants -->
+    <div class="boutons-flottants no-print">
+        <button id="btn-theme" title="Changer le thème">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="btn-pdf" title="Télécharger en PDF" onclick="window.print()">
+            <i class="fa-solid fa-file-pdf"></i>
+        </button>
+        <button id="btn-langue" title="Switch to English">EN</button>
+    </div>
+
+    <div class="conteneur">
+        <header>
+            <img src="image/image2.jpeg" alt="Photo de Ndiaga Diop" height="140" width="110">
+            <div>
+                <h1 class="nom">Ndiaga Diop</h1>
+                <!-- Le typing effect s'applique ici -->
+                <h2 id="titre-poste"></h2>
+            </div>
+        </header>
+
+        <div class="side-bare">
+            <h2 data-cle="coordonnees">Coordonnées</h2>
+            <address>
+                <p><i class="fa-solid fa-phone"></i> 76 748 55 43</p>
+                <!-- Bouton copier email -->
+                <p id="email-ligne">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span id="email-texte">diopndiaga705@gmail.com</span>
+                    <button id="btn-copier-email" title="Copier l'email">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                    <span id="copie-confirme"></span>
+                </p>
+                <p><i class="fa-solid fa-location-dot"></i> Louga, Sénégal</p>
+            </address>
+            <hr>
+
+            <h2 data-cle="competences">Compétences</h2>
+            <div class="competences-liste">
+                <div class="competence-item">
+                    <div class="competence-label"><span>C</span><span class="niveau-txt">70%</span></div>
+                    <div class="barre-fond"><div class="barre-remplissage" data-niveau="70"></div></div>
+                </div>
+                <div class="competence-item">
+                    <div class="competence-label"><span>Python</span><span class="niveau-txt">75%</span></div>
+                    <div class="barre-fond"><div class="barre-remplissage" data-niveau="75"></div></div>
+                </div>
+                <div class="competence-item">
+                    <div class="competence-label"><span>JavaScript</span><span class="niveau-txt">30%</span></div>
+                    <div class="barre-fond"><div class="barre-remplissage" data-niveau="30"></div></div>
+                </div>
+                <div class="competence-item">
+                    <div class="competence-label"><span>HTML</span><span class="niveau-txt">90%</span></div>
+                    <div class="barre-fond"><div class="barre-remplissage" data-niveau="90"></div></div>
+                </div>
+                <div class="competence-item">
+                    <div class="competence-label"><span>CSS</span><span class="niveau-txt">85%</span></div>
+                    <div class="barre-fond"><div class="barre-remplissage" data-niveau="85"></div></div>
+                </div>
+                <div class="competence-item">
+                    <div class="competence-label"><span data-cle="bdd">Bases de données</span><span class="niveau-txt">80%</span></div>
+                    <div class="barre-fond"><div class="barre-remplissage" data-niveau="80"></div></div>
+                </div>
+                <div class="competence-item">
+                    <div class="competence-label"><span data-cle="anglais">Anglais</span><span class="niveau-txt">70%</span></div>
+                    <div class="barre-fond"><div class="barre-remplissage" data-niveau="70"></div></div>
+                </div>
+            </div>
+
+            <hr>
+            <h2 data-cle="qualites">Qualités</h2>
+            <p data-cle="q1">Polyvalent</p>
+            <p data-cle="q2">Dynamique</p>
+            <p data-cle="q3">Rigoureux</p>
+            <p data-cle="q4">Capacité de travail sous pression</p>
+            <hr>
+            <h2 data-cle="interets">Centres d'intérêt</h2>
+            <p data-cle="i1">Pratique de la natation</p>
+            <p data-cle="i2">Voyages</p>
+            <p data-cle="i3">Sport</p>
+        </div>
+
+        <main>
+            <h3 data-cle="apropos">À propos de moi</h3>
+            <p data-cle="apropos-txt">Étudiant en deuxième année de licence en informatique, je suis passionné par le développement et les technologies. Je maîtrise plusieurs langages de programmation ainsi que les systèmes de gestion de bases de données relationnelles (SGBDR). Rigoureux et motivé, je cherche à mettre mes compétences en pratique et à continuer à évoluer dans le domaine du développement logiciel.</p>
+            <hr>
+            <h3 data-cle="experiences">Expériences professionnelles</h3>
+            <p>
+                <span data-cle="exp1-titre">Projet académique — Application de gestion de bibliothèque</span>
+                <span class="date">Mars 2026 – Avril 2026</span><br>
+                <span data-cle="exp1-desc">Conception et développement d'une application de gestion de bibliothèque avec une base de données MySQL. Modélisation des données et création des requêtes SQL.</span>
+            </p>
+            <p>
+                <span data-cle="exp2-titre">Projet personnel — Site web portfolio</span>
+                <span class="date">Juin 2024</span><br>
+                <span data-cle="exp2-desc">Création d'un site web personnel présentant mes projets et compétences en utilisant HTML, CSS et JavaScript.</span>
+            </p>
+            <hr>
+            <h3 data-cle="formations">Formations</h3>
+            <p data-cle="formation1">Baccalauréat scientifique en 2024 au Lycée Malick Sall de Louga</p>
+            <p data-cle="formation2">Licence Informatique en 2026 à l'UIDT de Thiès</p>
+        </main>
+    </div>
+
+    
+</body>
+</html>

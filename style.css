@@ -1,0 +1,319 @@
+.conteneur {
+    display: grid;
+    grid-template-areas:
+        "header  header  header"
+        "sidebar main    main"
+        "footer  footer  footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+
+}
+header        { grid-area: header;  background-color: #3498db; padding: 20px; }
+.side-bare    { grid-area: sidebar; background-color: #2c3e50; padding: 20px; color: white; }
+main          { grid-area: main;    background-color: #ecf0f1; padding: 20px; }
+footer        { grid-area: footer;  background-color: #34495e; padding: 15px; color: white; }
+.grille-cartes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+header{
+    display: flex;
+    align-items: center;  /* centrer verticalement */
+    gap: 30px;
+    background-color: #2c3e50;  /* même couleur que sidebar */
+    padding: 30px;
+    color: white;
+
+}
+
+header img {
+    border-radius: 50%;   /* photo ronde */
+    border: 3px solid white;
+}
+header h1 {
+    font-size: 32px;
+}
+header h2 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #bdc3c7;
+}
+.side-bare {
+    grid-area: sidebar;
+    background-color: #34495e;
+    padding: 25px;
+    color: white;
+}
+
+.side-bare h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #3498db;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.side-bare p {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.side-bare hr {
+    border: none;
+    border-top: 1px solid #4a6278;
+    margin: 15px 0;
+}
+main {
+    background-color: #f8f9fa;
+    padding: 30px;
+}
+
+main h3 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2c3e50;
+    border-left: 4px solid #3498db;  /* barre bleue à gauche */
+    padding-left: 10px;
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+
+main p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+main hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+.date {
+    font-size: 15px;
+    color: #3498db;
+    font-style: italic;
+}
+
+
+/* BOUTONS FLOTTANTS (theme + PDF) */
+.boutons-flottants {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.boutons-flottants button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boutons-flottants button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+
+/* BARRES DE PROGRESSION  */
+.competences-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.competence-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.competence-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: white;
+}
+
+.niveau-txt {
+    color: #3498db;
+    font-size: 12px;
+}
+
+.barre-fond {
+    background-color: #4a6278;
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.barre-remplissage {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 4px;
+    width: 0%;                          /* commence à 0, JS anime vers data-niveau */
+    transition: width 0.9s ease-in-out;
+}
+
+
+/* MODE CLAIR (appliqué sur body.mode-clair) */
+body.mode-clair header {
+    background-color: #2980b9;
+}
+
+body.mode-clair .side-bare {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}
+
+body.mode-clair .side-bare h2 {
+    color: #2980b9;
+}
+
+body.mode-clair .side-bare p,
+body.mode-clair .side-bare address p {
+    color: #2c3e50;
+}
+
+body.mode-clair .side-bare hr {
+    border-top-color: #aaa;
+}
+
+body.mode-clair .competence-label {
+    color: #2c3e50;
+}
+
+body.mode-clair .barre-fond {
+    background-color: #dce1e7;
+}
+
+body.mode-clair main {
+    background-color: #ffffff;
+}
+
+
+/* IMPRESSION PDF (@media print) */
+@media print {
+    /* Cacher les boutons flottants */
+    .no-print {
+        display: none !important;
+    }
+
+    /* Supprimer les marges de la page */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Forcer la grille à s'afficher correctement */
+    .conteneur {
+        min-height: unset;
+        display: grid;
+        grid-template-areas:
+            "header  header  header"
+            "sidebar main    main";
+        grid-template-rows: auto 1fr;
+    }
+
+    /* Éviter les coupures de page au milieu d'un paragraphe */
+    p, h3 {
+        page-break-inside: avoid;
+    }
+
+    /* Forcer les couleurs (certains navigateurs ignorent les backgrounds) */
+    header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .side-bare {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .barre-remplissage {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+
+/* BOUTON LANGUE */
+#btn-langue {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* BOUTON COPIER EMAIL */
+#email-ligne {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#btn-copier-email {
+    background: transparent;
+    border: 1px solid #3498db;
+    color: #3498db;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#btn-copier-email:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+#copie-confirme {
+    font-size: 12px;
+    color: #2ecc71;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#copie-confirme.visible {
+    opacity: 1;
+}
+
+
+/* TYPING EFFECT — curseur clignotant */
+#titre-poste::after {
+    content: '|';
+    animation: clignoter 0.8s step-end infinite;
+    color: #3498db;
+    margin-left: 2px;
+}
+
+@keyframes clignoter {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
